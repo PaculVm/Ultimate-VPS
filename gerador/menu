@@ -109,7 +109,6 @@ if __name__ == '__main__':
 PYTHON
 }
 
-}
 atualiza_fun () {
 cd $HOME
 tput cuu1 && tput dl1
