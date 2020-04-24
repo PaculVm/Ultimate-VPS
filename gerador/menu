@@ -121,10 +121,6 @@ wget -O $HOME/instalar.sh https://raw.githubusercontent.com/4nth0nySLT/GENERADOR
 chmod +x $HOME/instalar.s*
 local LINGUAGE=$(cat ${SCPidioma})
 $HOME/instalar.sh "${LINGUAGE}"
-else
-msg -verm "$(fun_trans "Procedimento Cancelado"): "
-msg -bar2
-fi
 }
 funcao_idioma () {
 tput cuu1 && tput dl1
