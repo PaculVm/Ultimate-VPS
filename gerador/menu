@@ -88,7 +88,7 @@ echo error
 exit 1
 fi
 $PY -x << PYTHON
-# -*- coding: utf-8 -*-
+# -*- coding: latin-1 -*-
 import requests, sys
 def traduccion(source, target, text):
     data = {'sl': source, 'tl': target, 'q': text}
@@ -101,7 +101,7 @@ def traduccion(source, target, text):
             print (x['trans'])
             return x['trans']
     else:
-        return "Ocurrió un error"
+        return "Ocurrio un error"
 def main():
     return traduccion('$source','$LINGUAGE',"$@")
 if __name__ == '__main__':
