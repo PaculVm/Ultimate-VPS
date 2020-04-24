@@ -70,27 +70,45 @@ done
 echo "$cores" > /etc/new-adm-color
 msg -bar2
 }
-fun_trans () { 
-local texto
-local retorno
-declare -A texto
+
+
+fun_trans () {
+local source=pt
 SCPidioma="${SCPdir}/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
 local LINGUAGE=$(cat ${SCPidioma})
 [[ -z $LINGUAGE ]] && LINGUAGE=pt
 [[ $LINGUAGE = "pt" ]] && echo "$@" && return
-[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://www.dropbox.com/s/l6iqf5xjtjmpdx5/trans?dl=0 &> /dev/null
-[[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
-source /etc/texto-adm
-if [[ -z "$(echo ${texto[$@]})" ]]; then
-#ENGINES=(aspell google deepl bing spell hunspell apertium yandex)
-#NUM="$(($RANDOM%${#ENGINES[@]}))"
-retorno="$(source trans -e bing -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
-echo "texto[$@]='$retorno'"  >> /etc/texto-adm
-echo "$retorno"
+if [[ -e /usr/bin/python3 ]]; then
+PY="/usr/bin/python3"
+elif [[ -e /bin/python3 ]]; then
+PY="/bin/python"
 else
-echo "${texto[$@]}"
+echo error
+exit 1
 fi
+$PY -x << PYTHON
+# -*- coding: utf-8 -*-
+import requests, sys
+def traduccion(source, target, text):
+    data = {'sl': source, 'tl': target, 'q': text}
+    headers = {"Charset":"UTF-8","User-Agent":"AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1"}
+    url = "https://translate.google.com/translate_a/single?client=at&dt=t&dt=ld&dt=qca&dt=rm&dt=bd&dj=1&hl=es-ES&ie=UTF-8&oe=UTF-8&inputm=2&otf=2&iid=1dd3b944-fa62-4b55-b330-74909a99969e"
+    response = requests.post(url, data=data, headers=headers)
+    if response.status_code == 200:
+        jso=response.json()['sentences']
+        for x in jso:
+            print (x['trans'])
+            return x['trans']
+    else:
+        return "Ocurrió un error"
+def main():
+    return traduccion('$source','$LINGUAGE',"$@")
+if __name__ == '__main__':
+    main()
+PYTHON
+}
+
 }
 atualiza_fun () {
 cd $HOME
@@ -99,13 +117,8 @@ msg -bar2
 msg -ama "$(fun_trans "ATUALIZADOR ADM SCRIPTS"): \033[1;31m[NEW-ULTIMATE]"
 msg -verm "$(fun_trans "Ao Prosseguirmos Dados como Tempo de uso Serao Perdidos"): "
 msg -bar2
-while [[ $Key != @(s|S|y|Y|n|N) ]]; do
-msg -ne "$(fun_trans "Concorda")? [S/N]: " && read Key
-tput cuu1 && tput dl1
-done
-if [[ $Key = @(s|S|y|Y) ]]; then
 msg -verm "$(fun_trans "Perfeito Iniciando Procedimento"): "
-wget -O $HOME/instalar.sh https://www.dropbox.com/s/s4k7ovuimvkr3zf/instalar.sh &>/dev/null
+wget -O $HOME/instalar.sh https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/instalar.sh &>/dev/null
 chmod +x $HOME/instalar.s*
 local LINGUAGE=$(cat ${SCPidioma})
 $HOME/instalar.sh "${LINGUAGE}"
@@ -596,7 +609,7 @@ export -f meu_ip
 export -f fun_ip
 clear
 msg -bar
-msg -ama "$(fun_trans "PORTAS ATIVAS E INFORMACOES DO SERVIDOR")"
+msg -ama "$(source trans -b pt:es "PORTAS ATIVAS E INFORMACOES DO SERVIDOR"|sed -e 's/[^a-z -]//ig')"
 msg -bar
 mine_port
 msg -bar

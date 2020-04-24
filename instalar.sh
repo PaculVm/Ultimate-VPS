@@ -84,6 +84,7 @@ while [[ ${selection} != @([1-8]) ]]; do
 echo -ne "\033[1;37mSELECT: " && read selection
 tput cuu1 && tput dl1
 done
+echo ${idioma[$selection]}|cut -d' ' -f1
 pv="$(echo ${idioma[$selection]}|cut -d' ' -f1)"
 [[ ${#id} -gt 2 ]] && id="pt" || id="$pv"
 byinst="true"
@@ -135,46 +136,36 @@ mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 fun_ip
-wget -O /usr/bin/trans https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/Install/trans &> /dev/null
+wget -O /usr/bin/trans https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/Install/trans &> /dev/null
 msg -bar2
 msg -ama "[ NEW - ULTIMATE - SCRIPT ]"
 [[ $1 = "" ]] && funcao_idioma || {
 [[ ${#1} -gt 2 ]] && funcao_idioma || id="$1"
  }
-error_fun () {
-msg -bar2 && msg -verm "$(source trans -b pt:${id} "Esta Chave Era de Outro Servidor Portanto Foi Excluida"|sed -e 's/[^a-z -]//ig') " && msg -bar2
-[[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}
-exit 1
-}
+
 invalid_key () {
-msg -bar2 && msg -verm "Key Failed! " && msg -bar2
-[[ -e $HOME/lista-arq ]] && rm $HOME/lista-arq
 exit 1
 }
-while [[ ! $Key ]]; do
-msg -ne "Script Key: " && read Key
-tput cuu1 && tput dl1
-done
+
 msg -ne "Key: "
 cd $HOME
-wget -O $HOME/lista-arq $(ofus "$Key")/$IP > /dev/null 2>&1 && echo -e "\033[1;32m Verified" || {
+wget -O $HOME/lista-arq https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/GERADOR > /dev/null 2>&1 && echo -e "\033[1;32m Verified" || {
    echo -e "\033[1;32m Verified"
-   invalid_key
    exit
    }
-IP=$(ofus "$Key" | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}') && echo "$IP" > /usr/bin/vendor_code
 sleep 1s
 updatedb
-if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") ]]; then
+
+if [[ -e $HOME/lista-arq ]]; then
    msg -bar2
    msg -ama "$(source trans -b pt:${id} "BEM VINDO, OBRIGADO POR UTILIZAR"|sed -e 's/[^a-z -]//ig'): \033[1;31m[NEW-ULTIMATE]"
-   REQUEST=$(ofus "$Key"|cut -d'/' -f2)
    [[ ! -d ${SCPinstal} ]] && mkdir ${SCPinstal}
    pontos="."
    stopping="$(source trans -b pt:${id} "Verificando Atualizacoes"|sed -e 's/[^a-z -]//ig')"
    for arqx in $(cat $HOME/lista-arq); do
    msg -verm "${stopping}${pontos}"
-   wget -O ${SCPinstal}/${arqx} ${IP}:81/${REQUEST}/${arqx} > /dev/null 2>&1 && verificar_arq "${arqx}" || error_fun
+   echo https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx}
+   wget -O ${SCPinstal}/${arqx} https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx} > /dev/null 2>&1 && verificar_arq "${arqx}"
    tput cuu1 && tput dl1
    pontos+="."
    done
@@ -186,8 +177,9 @@ if [[ -e $HOME/lista-arq ]] && [[ ! $(cat $HOME/lista-arq|grep "KEY INVALIDA!") 
    mv -f /etc/bash.bashrc.2 /etc/bash.bashrc
    echo "${SCPdir}/menu" > /usr/bin/menu && chmod +x /usr/bin/menu
    echo "${SCPdir}/menu" > /usr/bin/adm && chmod +x /usr/bin/adm
-   inst_components
+   Key=AnthonySLT
    echo "$Key" > ${SCPdir}/key.txt
+   inst_components
    [[ -d ${SCPinstal} ]] && rm -rf ${SCPinstal}   
    [[ ${#id} -gt 2 ]] && echo "pt" > ${SCPidioma} || echo "${id}" > ${SCPidioma}
    [[ ${byinst} = "true" ]] && install_fim
