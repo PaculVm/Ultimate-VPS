@@ -264,7 +264,7 @@ local bot_retorno="$LINE\n"
          bot_retorno+="/scan ($(fun_trans "faz um scan de subdominios"))\n"
          bot_retorno+="/gerar ($(fun_trans "gerador de payload"))\n"
          bot_retorno+="/criptar ($(fun_trans "Codifica e Decodifica um Texto"))\n"
-         bot_retorno+="/logar $(fun_trans "Usuario Senha") ($(fun_trans "libera o bot"))\n"
+         bot_retorno+="/login $(fun_trans "Usuario Senha") ($(fun_trans "libera o bot"))\n"
          bot_retorno+="$LINE\n"
 	     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $bot_retorno)" \
@@ -903,7 +903,7 @@ while true; do
 	      /[Tt]este|[Tt]este)teste_fun &;;
 		  /[Aa]juda|[Aa]juda|[Hh]elp|/[Hh]elp)ajuda_fun &;;
 		  /[Ss]tart|[Ss]tart|[Cc]omecar|/[Cc]omecar)ajuda_fun &;;
-		  /[Ll]ogar|[Ll]ogar|[Ll]oguin|/[Ll]oguin)ativarid_fun "${comando[1]}" "${comando[2]}" "$chatuser";;
+		  /[Ll]ogin|/[Ll]ogar|[Ll]ogar|[Ll]oguin|/[Ll]oguin)ativarid_fun "${comando[1]}" "${comando[2]}" "$chatuser";;
 		  *)if [[ ! -z $LIBERADOS ]] && [[ $(echo ${LIBERADOS}|grep -w "${chatuser}") ]]; then
              case ${comando[0]} in
              [Oo]nline|/[Oo]nline|[Oo]nlines|/[Oo]nlines)online_fun &;;
