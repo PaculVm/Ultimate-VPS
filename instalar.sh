@@ -164,7 +164,7 @@ if [[ -e $HOME/lista-arq ]]; then
    stopping="$(source trans -b pt:${id} "Verificando Atualizacoes"|sed -e 's/[^a-z -]//ig')"
    for arqx in $(cat $HOME/lista-arq); do
    msg -verm "${stopping}${pontos}"
-   echo https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx}
+   echo https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx} > /dev/null 2>&1
    wget -O ${SCPinstal}/${arqx} https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx} > /dev/null 2>&1 && verificar_arq "${arqx}"
    tput cuu1 && tput dl1
    pontos+="."
