@@ -8,16 +8,14 @@
 
 2 • USAR DISTRIBUCION NUEVA O FORMATIADA
 
-3 • ESTE SCRIPT INSTALARA NEW-ULTIMATE CON ARCHIVOS MODIFICADOS POR MI
+3 • ESTE SCRIPT INSTALARA NEW-ULTIMATE CON ARCHIVOS MODIFICADOS POR 4nth0nySLT
 
 
 ## Installation
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
 
-![logo](https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/INSTALL_NEWADM.png)
-
-![logo](https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/NEW_ULTIMATE.png)
+![logo](https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/blob/master/español.png)
 
 
 ```
@@ -28,10 +26,11 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/4n
 * ARCHIVOS LIBERADOS (DECENCRIPTADOS)
 ```
 
+### Proyecto que estaba abandonado...
 ```
 ☆ https://t.me/admmanagerfree ☆
 
 ☆ https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ ☆
-```
 
 **By: [ FULL SCRIPTS ⃘⃤꙰✰ ]**
+```
