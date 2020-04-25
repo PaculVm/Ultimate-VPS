@@ -1,17 +1,15 @@
 ﻿# GENERADOR-NEW-ULTIMATE-ORIGINAL
 
-**Generador De Key NEWADM**
-
 ## :heavy_exclamation_mark: Requerimientos
 
-1 • RECOMENDADO UBUNTU 14.04
+1 • RECOMENDADO UBUNTU 18.04
 
-2 • USAR DISTRIBUCION NUEVA O FORMATIADA
+2 • USAR DISTRIBUCION NUEVA O FORMATEADA
 
 3 • ESTE SCRIPT INSTALARA NEW-ULTIMATE CON ARCHIVOS MODIFICADOS POR 4nth0nySLT
 
 
-## Installation
+## Install
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
 
