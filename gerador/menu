@@ -82,7 +82,7 @@ local LINGUAGE=$(cat ${SCPidioma})
 if [[ -e /usr/bin/python3 ]]; then
 PY="/usr/bin/python3"
 elif [[ -e /bin/python3 ]]; then
-PY="/bin/python"
+PY="/bin/python3"
 else
 echo error
 exit 1

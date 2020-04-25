@@ -13,7 +13,7 @@ local LINGUAGE=$(cat ${SCPidioma})
 if [[ -e /usr/bin/python3 ]]; then
 PY="/usr/bin/python3"
 elif [[ -e /bin/python3 ]]; then
-PY="/bin/python"
+PY="/bin/python3"
 else
 echo error
 exit 1
@@ -29,7 +29,7 @@ def traduccion(source, target, text):
     if response.status_code == 200:
         jso=response.json()['sentences']
         for x in jso:
-            print (x['trans'])
+            print (x['trans'].replace("calamar","SQUID"))
             return x['trans']
     else:
         return "Ocurrio un error"

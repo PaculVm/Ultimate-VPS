@@ -1,10 +1,50 @@
 #!/bin/bash
+
+
+fun_trans () {
+local source=pt
+SCPidioma="/etc/newadm/idioma"
+[[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
+local LINGUAGE=$(cat ${SCPidioma})
+[[ -z $LINGUAGE ]] && LINGUAGE=pt
+[[ $LINGUAGE = "pt" ]] && echo "$@" && return
+if [[ -e /usr/bin/python3 ]]; then
+PY="/usr/bin/python3"
+elif [[ -e /bin/python3 ]]; then
+PY="/bin/python3"
+else
+echo error
+exit 1
+fi
+$PY -x << PYTHON
+# -*- coding: latin-1 -*-
+import requests, sys
+def traduccion(source, target, text):
+    data = {'sl': source, 'tl': target, 'q': text}
+    headers = {"Charset":"UTF-8","User-Agent":"AndroidTranslate/5.3.0.RC02.130475354-53000263 5.1 phone TRANSLATE_OPM5_TEST_1"}
+    url = "https://translate.google.com/translate_a/single?client=at&dt=t&dt=ld&dt=qca&dt=rm&dt=bd&dj=1&hl=es-ES&ie=UTF-8&oe=UTF-8&inputm=2&otf=2&iid=1dd3b944-fa62-4b55-b330-74909a99969e"
+    response = requests.post(url, data=data, headers=headers)
+    if response.status_code == 200:
+        jso=response.json()['sentences']
+        for x in jso:
+            print (x['trans'])
+            return x['trans']
+    else:
+        return "Ocurrio un error"
+def main():
+    return traduccion('$source','$LINGUAGE',"$@")
+if __name__ == '__main__':
+    main()
+PYTHON
+}
+
+
+
+
 declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" )
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
-API_TRANS="aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vcy9sNmlxZjV4anRqbXBkeDUvdHJhbnM/ZGw9MA=="
-SUB_DOM='base64 -d'
-wget -O /usr/bin/trans $(echo $API_TRANS|$SUB_DOM) &> /dev/null
+
 mportas () {
 unset portas
 portas_var=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
