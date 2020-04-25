@@ -5,7 +5,7 @@
 
 fun_trans () {
 local source=pt
-SCPidioma="${SCPdir}/idioma"
+SCPidioma="/etc/newadm/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
 local LINGUAGE=$(cat ${SCPidioma})
 [[ -z $LINGUAGE ]] && LINGUAGE=pt
