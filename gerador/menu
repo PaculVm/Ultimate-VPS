@@ -616,7 +616,7 @@ msg -ne "$(fun_trans "ENDERECO DA MAQUINA"): " && msg -bra "$(meu_ip)"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "USER-KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
-msg -ama "$(fun_trans "GERENCIADOR") \033[1;31m[\033[1;32m NEW-ULTIMATE \033[1;31m]"
+msg -ama "$(fun_trans "GERENCIADOR") \033[1;31m[\033[1;32m Ultimate-VPS \033[1;31m]"
 msg -bar
 menu_func "GERENCIAR USUARIOS" "FERRAMENTAS" "MENU DE INSTALACOES" "-vd ATUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIALIZACAO" "TROCAR IDIOMA" "TROCAR CORES"
 echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "EXIT"
