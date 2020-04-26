@@ -14,6 +14,8 @@
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
 
+psdt: Puede contener errores de traducción, no esta totalmente probado, puede no funcionar alguna de sus herramientas, pero lo principal si.
+
 ![logo](https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/español.png)
 
 
