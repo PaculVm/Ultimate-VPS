@@ -24,7 +24,7 @@ psdt: Puede contener errores de traducción, no esta totalmente probado, puede n
 * SIN KEYS! 
 * VERSION GRATUITA 
 * SIN VIRUS TROJANO (BOTNET) 
-* ARCHIVOS LIBERADOS (DECENCRIPTADOS)
+* ARCHIVOS LIBERADOS (DESENCRIPTADOS)
 ```
 
 ### Proyecto que estaba abandonado...
