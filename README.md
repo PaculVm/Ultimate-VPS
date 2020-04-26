@@ -1,4 +1,4 @@
-﻿# GENERADOR-NEW-ULTIMATE-ORIGINAL
+﻿# Ultimate VPS
 
 ## :heavy_exclamation_mark: Requerimientos
 
