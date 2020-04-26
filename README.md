@@ -1,4 +1,4 @@
-﻿# GENERADOR-NEW-ULTIMATE-ORIGINAL
+﻿# Ultimate-VPS
 
 ## :heavy_exclamation_mark: Requerimientos
 
@@ -11,9 +11,9 @@
 
 ## Install
 
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
 
-![logo](https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/español.png)
+![logo](https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/español.png)
 
 
 ```

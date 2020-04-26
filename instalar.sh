@@ -136,7 +136,7 @@ mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
 fun_ip
-wget -O /usr/bin/trans https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/Install/trans &> /dev/null
+wget -O /usr/bin/trans https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/Install/trans &> /dev/null
 msg -bar2
 msg -ama "[ NEW - ULTIMATE - SCRIPT ]"
 [[ $1 = "" ]] && funcao_idioma || {
@@ -149,7 +149,7 @@ exit 1
 
 msg -ne "Key: "
 cd $HOME
-wget -O $HOME/lista-arq https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/GERADOR > /dev/null 2>&1 && echo -e "\033[1;32m Verified" || {
+wget -O $HOME/lista-arq https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/gerador/GERADOR > /dev/null 2>&1 && echo -e "\033[1;32m Verified" || {
    echo -e "\033[1;32m Verified"
    exit
    }
@@ -164,8 +164,8 @@ if [[ -e $HOME/lista-arq ]]; then
    stopping="$(source trans -b pt:${id} "Verificando Atualizacoes"|sed -e 's/[^a-z -]//ig')"
    for arqx in $(cat $HOME/lista-arq); do
    msg -verm "${stopping}${pontos}"
-   echo https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx} > /dev/null 2>&1
-   wget -O ${SCPinstal}/${arqx} https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/gerador/${arqx} > /dev/null 2>&1 && verificar_arq "${arqx}"
+   echo https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/gerador/${arqx} > /dev/null 2>&1
+   wget -O ${SCPinstal}/${arqx} https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/gerador/${arqx} > /dev/null 2>&1 && verificar_arq "${arqx}"
    tput cuu1 && tput dl1
    pontos+="."
    done

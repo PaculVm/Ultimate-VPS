@@ -117,7 +117,7 @@ msg -ama "$(fun_trans "ATUALIZADOR ADM SCRIPTS"): \033[1;31m[NEW-ULTIMATE]"
 msg -verm "$(fun_trans "Ao Prosseguirmos Dados como Tempo de uso Serao Perdidos"): "
 msg -bar2
 msg -verm "$(fun_trans "Perfeito Iniciando Procedimento"): "
-wget -O $HOME/instalar.sh https://raw.githubusercontent.com/4nth0nySLT/GENERADOR-NEW-ULTIMATE-ORIGINAL/master/instalar.sh &>/dev/null
+wget -O $HOME/instalar.sh https://raw.githubusercontent.com/4nth0nySLT/Ultimate-VPS/master/instalar.sh &>/dev/null
 chmod +x $HOME/instalar.s*
 local LINGUAGE=$(cat ${SCPidioma})
 $HOME/instalar.sh "${LINGUAGE}"
